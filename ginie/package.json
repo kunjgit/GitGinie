@@ -16,6 +16,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "mongoose": "^8.0.3",
     "probot": "^12.2.4"
   },
   "devDependencies": {
