@@ -1,26 +1,25 @@
-# GitGinne
+# Contributing in Open Source to Building something for Open Source, we proudly present our **🅶 🅸 🆃-🅶 🅸 🅽 🅸 🅴!** <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Growing%20Heart.png" alt="Growing Heart" width="35" height="35" />
 
-**Git-Ginnie** is a GitHub automation project developed for the **All In Open Source Hackathon 2023**. It is created by StageOverStash team which include three friends who want to create something unique and problem solver and GitGinne is our charming project. Now let's see what we have to present, so start with...
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bookmark.png" alt="Bookmark" width="45" height="45" /> What is GitGinie?
+GitGinie is the GitHub Automation Application developed by our team **StageOverStash** during **All In Open Source Hackathon 2023**. It isn't a simple application, it comes up with the UI where you can customise the messages you want on triggering the workflows.
 
-### Purpose of Git-Ginnie❓
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" width="45" height="45" />What inspired us to build GitGinie?
 
-In the fast-paced world of software development, indie developers and project repository managers often face challenges in managing their workflows efficiently. Git-Ginne addresses these challenges by providing automation solutions tailored to the specific needs of these users.
+**CONTRIBUTORS**
+- While contributing to various Open Source projects, we have observed that getting responses over issues, or pull requests used to take a lot of time. Also it's really natural that project maintainers are really busy with their works as well, so getting responses may take time. 
 
-#### Challenges faced by indie developers and project managers 🪨
+**PROJECT MAINTAINERS**
+- The only major challenge while working with large scale open source projects is maintaining workflows.
+- Responding to each and every issue is very tedious. When there is a large scale project and more than one project maintainers are working together, it's chaotic to go through issues, and PRs and respond each one. 
+- Adding labels to issues is also time consuming task, so GitGinie comes here.
 
-- Indie Developer
-  - Indie developers often work with limited resources and may not have dedicated teams to handle various aspects of project management.
-  - With multiple responsibilities, indie developers find it challenging to allocate time for manual tasks, such as responding to issues and pull requests.
-  - Maintaining visibility into project activities and keeping issues organized can be overwhelming for individual developers.
-- Project Manager
-  - Project repository managers oversee larger projects with numerous contributors, making manual issue tracking and labeling a time-consuming task.
-  - Efficient communication with contributors, including commenting on issues and pull requests, becomes more challenging as the project scales.
+#### **GitGinie is a GitHub Automation Application for Contributers, for maintainers and for our Open Source Community.**<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Growing%20Heart.png" alt="Growing Heart" width="25" height="25" />
 
-### How GitGinne Addresses These Challenges? 🚀
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Bullseye.png" alt="Bullseye" width="45" height="45" /> How GitGinie can help you? 
 
 1. Automated Commenting:
 
-   - Git-Ginne automatically comments on the opening and closing of issues and pull requests, providing instant feedback and reducing the need for manual responses
+   - Git-Ginie automatically comments on the opening and closing of issues and pull requests.
 
 2. Smart Labeling:
 
@@ -30,6 +29,19 @@ In the fast-paced world of software development, indie developers and project re
 
    - Git-Ginne adds reactions to issues, allowing for quick and expressive feedback from contributors without the need for explicit comments.
 
-4. Customizable Configuration:
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Alien%20Monster.png" alt="Alien Monster" width="45" height="45" /> How we built this project? 
+![image](https://github.com/kunjgit/GitGinie/assets/106090499/fe077123-814c-4398-afae-755c30d403b1)
 
-   - Developers and repo managers can tailor Git-Ginne to meet their specific needs by adjusting configuration settings, such as comment content, labeling rules, and more.
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Memo.png" alt="Memo" width="35" height="35" /> Challenges we faced : 
+- Deployment on Cloud was the biggest challenge that we had faced while bring out the best of the project. 
+- Connecting GitHubApp with WebClient
+
+<div align = "center">
+
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Round%20Pushpin.png" alt="Round Pushpin" width="35" height="35" /> Don't forget to explore our GitGinie : [GitGinie](https://www.gitginie.co/)
+### Integrate this GitHub Application into your Open Source Project, save your time and enjoy automating the GitHub workflows with UI! <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face%20with%20Big%20Eyes.png" alt="Grinning Face with Big Eyes" width="45" height="45" />
+</div>
+
+<hr>
+<div align="center">Built by ❤️ by StageOverStash </div>
