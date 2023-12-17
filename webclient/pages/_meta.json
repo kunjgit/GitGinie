@@ -13,6 +13,20 @@
         "theme": {
           "typesetting": "article"
         }
+      },
+      "repoconfig": {
+        "type": "page",
+        "title": "Configure Repo",
+        "theme": {
+          "typesetting": "article"
+        }
+      },
+      "labelconfig": {
+        "type": "page",
+        "title": "Configure Label",
+        "theme": {
+          "typesetting": "article"
+        }
       }
   }
   

@@ -8,10 +8,22 @@
   }
 }
 
+
+*{
+  @apply font-sec
+}
+
 @font-face {
   font-family: 'Ginie';
   src: url('/fonts/FontsFree-Net-NoeDisplay-Bold.ttf') ; 
 }
+
+
+@font-face {
+  font-family: 'secondary';
+  src: url('/fonts/Quicksand-Medium.ttf') ; 
+}
+
 
 
 @keyframes spin-slow {
