@@ -21,9 +21,9 @@ Thus, we came up with the idea to automate the workflow process and we have toda
 
 2) **Smart Labeling**: The tool intelligently assigns labels to issues and pull requests based on predefined criteria, enhancing organization and making it easier to categorize tasks.
 
-3)**Reaction Integration**: Git-Ginie adds reactions to issues, allowing for quick and expressive feedback from contributors without the need for explicit comments.
+3) **Reaction Integration**: Git-Ginie adds reactions to issues, allowing for quick and expressive feedback from contributors without the need for explicit comments.
 
-4)**Automated Issue Assign**: As soon as contributor comments ```\assign``` in the comment, the issue is automatically assigned to that contributor.
+4) **Automated Issue Assign**: As soon as contributor comments ```\assign``` in the comment, the issue is automatically assigned to that contributor.
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Alien%20Monster.png" alt="Alien Monster" width="45" height="45" /> How we built this project? 
 ![image](https://github.com/kunjgit/GitGinie/assets/106090499/fe077123-814c-4398-afae-755c30d403b1)
