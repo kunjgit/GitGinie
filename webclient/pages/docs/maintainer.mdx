@@ -1,0 +1,234 @@
+# GitHub Repository Maintenance Guide
+
+Maintaining a GitHub repository involves various tasks to ensure smooth collaboration and project management. Here's a guide to help you, as a repository maintainer, make your work more efficient.
+
+## Table of Contents
+
+1. [Auto Labelling](#auto-labelling)
+2. [Issue and Pull Request Templates](#issue-and-pull-request-templates)
+3. [Code of Conduct](#code-of-conduct)
+4. [Contributing Guidelines](#contributing-guidelines)
+5. [Branch Protection Rules](#branch-protection-rules)
+6. [Code Reviews](#code-reviews)
+7. [Automated Workflows](#automated-workflows)
+8. [Security Alerts](#security-alerts)
+9. [Dependency Updates](#dependency-updates)
+10. [Community and Discussions](#community-and-discussions)
+
+---
+
+## Auto Labelling
+
+### Setting up Auto Labelling
+
+Auto labelling helps categorize issues and pull requests based on keywords or patterns in their titles or descriptions.
+
+1. Go to your repository on GitHub.
+2. Click on the "Issues" tab.
+3. On the right sidebar, click "Labels."
+4. At the bottom of the labels list, click "Set up automated labelling."
+
+### Example Auto Label Rules
+
+- **Bug Reports**:
+  - Title contains: "bug"
+  - Body contains: "error," "issue"
+
+- **Feature Requests**:
+  - Title contains: "feature request"
+  - Body contains: "proposal," "idea"
+
+---
+
+## Issue and Pull Request Templates
+
+### Creating Templates
+
+Templates provide structured formats for creating issues and pull requests.
+
+1. In your repository, go to the "Issues" or "Pull Requests" tab.
+2. Click on the "Get started" link next to "Use a template."
+3. Create your template using [GitHub Flavored Markdown](https://github.github.com/gfm/).
+
+### Example Issue Template
+
+```markdown
+---
+name: Bug Report
+about: Create a report to help us improve
+title: ''
+labels: bug
+assignees: ''
+---
+
+**Describe the Bug**
+
+A clear and concise description of what the bug is.
+
+**To Reproduce**
+
+Steps to reproduce the behavior:
+
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
+
+**Expected Behavior**
+
+A clear and concise description of what you expected to happen.
+
+**Screenshots**
+
+If applicable, add screenshots to help explain your problem.
+```
+
+---
+
+## Code of Conduct
+
+### Adding a Code of Conduct
+
+A Code of Conduct sets expectations for behavior within your community.
+
+1. Create a new file named `CODE_OF_CONDUCT.md` in your repository.
+2. Use a [template like this](https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md) and customize it for your project.
+
+3. In your repository, go to "Settings" > "Options."
+4. In the left sidebar, click "Community."
+5. Under "Code of conduct," select your `CODE_OF_CONDUCT.md` file.
+
+---
+
+## Contributing Guidelines
+
+### Providing Contribution Guidelines
+
+Contribution guidelines help contributors understand how to submit meaningful contributions.
+
+1. Create a new file named `CONTRIBUTING.md` in your repository.
+2. Write your contribution guidelines using Markdown.
+
+3. In your repository, go to "Settings" > "Options."
+4. In the left sidebar, click "Community."
+5. Under "Contributing," select your `CONTRIBUTING.md` file.
+
+---
+
+## Branch Protection Rules
+
+### Protecting Important Branches
+
+Branch protection prevents direct pushes to specific branches.
+
+1. In your repository, go to "Settings" > "Branches."
+2. Under "Branch protection rules," click "Add rule."
+
+### Example Rules
+
+- **main**:
+  - Require pull request reviews before merging.
+  - Require status checks to pass before merging.
+  - Include administrators.
+
+- **development**:
+  - Restrict who can push to this branch.
+
+---
+
+## Code Reviews
+
+### Enabling Code Reviews
+
+Code reviews ensure high code quality before merging.
+
+1. In your repository, go to "Settings" > "Options."
+2. In the left sidebar, click "Pull requests."
+
+### Recommended Settings
+
+- [x] Require review from Code Owners
+- [x] Allow edits from maintainers
+- [x] Require review for pull requests
+
+---
+
+## Automated Workflows
+
+### Setting Up Automated Workflows
+
+Automated workflows streamline development tasks.
+
+1. Create a `.github/workflows` directory.
+2. Add your workflow YAML files to this directory.
+
+### Example Workflow: Continuous Integration
+
+```yaml
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
+```
+
+---
+
+## Security Alerts
+
+### Enabling Security Alerts
+
+Security alerts notify you of vulnerable dependencies.
+
+1. In your repository, go to "Settings" > "Security & analysis."
+2. Under "Dependency alerts," click "Configure."
+
+---
+
+## Dependency Updates
+
+### Automating Dependency Updates
+
+Automated dependency updates keep your project secure and up-to-date.
+
+1. Use a service like [Dependabot](https://github.com/marketplace/dependabot-preview).
+
+2. Configure it in your repository.
+
+---
+
+## Community and Discussions
+
+### Fostering Community
+
+Engage with your community through discussions, forums, and social media.
+
+1. Enable [GitHub Discussions](https://docs.github.com/en/discussions) in your repository settings.
+
+2. Create channels for different topics or areas of interest.
+
+3. Encourage respectful and inclusive conversations.
+
+---
+
+These practices will help you maintain your GitHub repository effectively, fostering a collaborative and positive open-source community. Happy coding! 🚀

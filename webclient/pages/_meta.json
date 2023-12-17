@@ -1,32 +1,35 @@
 {
-    "index": {
-      "type": "page",
-      "title": "GitGinie",
-      "display": "hidden",
-      "theme": {
-        "typesetting": "raw"
-      }
-    },
-    "profile": {
-        "type": "page",
-        "title": "Profile",
-        "theme": {
-          "typesetting": "article"
-        }
-      },
-      "repoconfig": {
-        "type": "page",
-        "title": "Configure Repo",
-        "theme": {
-          "typesetting": "article"
-        }
-      },
-      "labelconfig": {
-        "type": "page",
-        "title": "Configure Label",
-        "theme": {
-          "typesetting": "article"
-        }
-      }
+  "index": {
+    "type": "page",
+    "title": "GitGinie",
+    "display": "hidden",
+    "theme": {
+      "typesetting": "raw"
+    }
+  },
+  "profile": {
+    "type": "page",
+    "title": "Profile",
+    "theme": {
+      "typesetting": "article"
+    }
+  },
+  "docs": {
+    "type": "page",
+    "title": "How to use"
+  },
+  "repoconfig": {
+    "type": "page",
+    "title": "Configure Repo",
+    "theme": {
+      "typesetting": "article"
+    }
+  },
+  "labelconfig": {
+    "type": "page",
+    "title": "Configure Label",
+    "theme": {
+      "typesetting": "article"
+    }
   }
-  
+}
