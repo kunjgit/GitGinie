@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
-
+import { Toaster,toast } from "react-hot-toast";
 // MarkdownPreview component for rendering Markdown content
 type MarkdownPreviewProps = {
   content: string;
@@ -113,6 +113,8 @@ const RepoInfo = () => {
           pullRequestOpenContent: "",
           pullRequestCloseContent: "",
         });
+
+        toast.success("Repo Configured Successfully");
       }
     } catch (error) {
       console.log("Error is : ", error);
@@ -127,6 +129,7 @@ const RepoInfo = () => {
         `/api/repo_config/${repo_name}`,
         repoInfo
       );
+      toast.success("Repo Updated Successfully");
     } catch (error) {
       console.log("error found", error);
     }
@@ -137,6 +140,7 @@ const RepoInfo = () => {
     console.log(repo_name);
     try {
       const response = await axios.delete(`/api/repo_config/${repo_name}`);
+      toast.success("Repo Config Deleted Successfully");
     } catch (error) {
       console.log("error found", error);
     }
@@ -145,6 +149,8 @@ const RepoInfo = () => {
   return session?.user ? (
     <>
       <div>
+        <Toaster/>
+        <div className="text-5xl text-center font-ginie">Repository Configuration</div>
         <i>
           <p>* Guide</p>
           <p>Select the repo</p>

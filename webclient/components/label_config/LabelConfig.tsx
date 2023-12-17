@@ -1,10 +1,10 @@
-// Import necessary modules and components
+import { Toaster,toast } from "react-hot-toast";
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 
-// Define types for labelInfo
+
 type labelInfoState = {
   repo_name: string;
   username: string;
@@ -12,8 +12,13 @@ type labelInfoState = {
   label: string;
 };
 
-// labelInfo component
+
+
+
+
+
 const labelInformation = () => {
+
   const { data: session } = useSession();
   const [labelInfo, setlabelInfo] = useState<labelInfoState>({
     repo_name: "",
@@ -24,6 +29,8 @@ const labelInformation = () => {
 
   const [userRepos, setUserRepos] = useState<string[]>([]);
 
+
+  
   useEffect(() => {
     const fetchUserRepos = async () => {
       try {
@@ -52,6 +59,7 @@ const labelInformation = () => {
       );
 
       if (response.status === 200) {
+        toast.success("Label Configured Successfully");
         const updatedInfo = response.data;
         setlabelInfo({
           ...labelInfo,
@@ -74,6 +82,8 @@ const labelInformation = () => {
         `/api/label_config/${labelInfo.repo_name}`,
         labelInfo
       );
+
+      toast.success("Label Updated Successfully");
     } catch (error) {
       console.log("error found", error);
     }
@@ -86,6 +96,8 @@ const labelInformation = () => {
       const response = await axios.delete(`/api/label_config/${repo_name}`, {
         data: labelInfo,
       });
+
+      toast.success("Label Deleted Successfully");
     } catch (error) {
       console.log("error found", error);
     }
@@ -94,6 +106,8 @@ const labelInformation = () => {
   return session?.user ? (
     <>
       <div>
+       <Toaster/>
+       <div className="text-5xl font-ginie text-center">Configure Labels</div>
         <i>
           <p>* Guide</p>
           <p>Select the repo</p>

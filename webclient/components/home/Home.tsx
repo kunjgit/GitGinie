@@ -7,8 +7,8 @@ const Home: React.FC = () => {
 
   return (
     <div className="text-center ">
-      <h3 className="text-2xl font-ginie text-center font-bold text-zinc-900 dark:text-white md:text-3xl lg:text-4xl my-4">
-        Git-Ginie
+      <h3 className="text-5xl font-ginie text-center font-bold text-zinc-900 dark:text-white md:text-3xl lg:text-4xl my-4">
+        GitGinie
       </h3>
 
       <div className=" w-full flex flex-col px-0 mx-0">

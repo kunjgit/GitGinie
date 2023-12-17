@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import labelConfig from '@models/label_config';
 import dbConnect from '@utils/database';
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -43,6 +42,9 @@ export default async function handler(
             },
           }
         );
+
+      
+        
 
         return res.status(200).json({
           message: 'Label configuration successfully updated',
