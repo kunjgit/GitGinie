@@ -11,8 +11,8 @@ export function About() {
     <>
       <div className="relative">
         <Container>
-          <h3 className="text-2xl text-center font-bold text-zinc-900 dark:text-white md:text-3xl lg:text-4xl">
-            Why Git-Ginnie ?
+          <h3 className="text-2xl font-ginie text-center font-bold text-zinc-900 dark:text-white md:text-3xl lg:text-4xl">
+            Why Git-Ginie ?
           </h3>
 
           <div className="relative mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

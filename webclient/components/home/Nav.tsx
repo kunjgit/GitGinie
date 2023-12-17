@@ -34,7 +34,6 @@ const Nav: React.FC = () => {
       <div className="sm:flex hidden ">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
-           
             <Link href="/profile">
               <img
                 src={session?.user.image || "no profile"}

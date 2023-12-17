@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 
-
 // Define types for labelInfo
 type labelInfoState = {
   repo_name: string;
@@ -13,7 +12,6 @@ type labelInfoState = {
   label: string;
 };
 
-
 // labelInfo component
 const labelInformation = () => {
   const { data: session } = useSession();
@@ -21,12 +19,10 @@ const labelInformation = () => {
     repo_name: "",
     username: session?.user?.github_username!,
     issueContent: "",
-    label: ""
+    label: "",
   });
 
-
   const [userRepos, setUserRepos] = useState<string[]>([]);
-
 
   useEffect(() => {
     const fetchUserRepos = async () => {
@@ -34,9 +30,7 @@ const labelInformation = () => {
         const response = await axios.get(
           `https://api.github.com/users/${session?.user?.github_username}/repos`
         );
-        setUserRepos(response.data.map((repo : any) => repo.name));
-
-
+        setUserRepos(response.data.map((repo: any) => repo.name));
       } catch (error) {
         console.log("Error fetching user repos: ", error);
       }
@@ -46,8 +40,6 @@ const labelInformation = () => {
       fetchUserRepos();
     }
   }, [session]);
-
-
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -66,7 +58,7 @@ const labelInformation = () => {
           repo_name: "",
           username: session?.user?.github_username!,
           issueContent: "",
-          label: ""
+          label: "",
         });
       }
     } catch (error) {
@@ -91,9 +83,9 @@ const labelInformation = () => {
     console.log("You want to delete - label config");
     console.log(repo_name);
     try {
-      const response = await axios.delete(
-        `/api/label_config/${repo_name}`,{data : labelInfo}
-      );
+      const response = await axios.delete(`/api/label_config/${repo_name}`, {
+        data: labelInfo,
+      });
     } catch (error) {
       console.log("error found", error);
     }
@@ -101,83 +93,102 @@ const labelInformation = () => {
 
   return session?.user ? (
     <>
+      <div>
+        <i>
+          <p>* Guide</p>
+          <p>Select the repo</p>
+          <p>In issue content you have to specify the word by which you want to add label</p>
+          <p>In label you specify label</p>
+        </i>
+      </div>
       <form className="text-center w-full" onSubmit={handleSubmit}>
         <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
-        <label htmlFor="reponame" className="font-semibold leading-none text-gray-300">Select Repo</label>
-        <select
-          name="reponame"
-          id="reponame"
-          value={labelInfo.repo_name}
-          onChange={(e) => {
-            setlabelInfo({ ...labelInfo, repo_name: e.target.value });
-          }}
-          className="text-gray-8 p-3 focus:outline-none focus:border-blue-700 mt-2 border-0 bg-gray-800 rounded"
-        >
-          <option value="" disabled>
-            Select a repository
-          </option >
-          {userRepos.map((repo, index) => (
-            <option key={index} value={repo}>
-              {repo}
+          <label
+            htmlFor="reponame"
+            className="font-semibold leading-none my-2 text-gray-300"
+          >
+            Select Repo
+          </label>
+          <select
+            name="reponame"
+            id="reponame"
+            value={labelInfo.repo_name}
+            onChange={(e) => {
+              setlabelInfo({ ...labelInfo, repo_name: e.target.value });
+            }}
+            className="text-gray-8 p-3 focus:outline-none focus:border-slate-200 mt-2 bg-slate-900 border-2 border-slate-400 rounded-full"
+          >
+            <option value="" disabled>
+              Select a repository
             </option>
-          ))}
-        </select>
-        <br />
+            {userRepos.map((repo, index) => (
+              <option key={index} value={repo}>
+                {repo}
+              </option>
+            ))}
+          </select>
+          <br />
         </div>
-          <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-3">
-        <label htmlFor="issueContent" className="font-semibold leading-none text-gray-300">Issue Content </label>
-        <input
-          type="text"
-          name="issueContent"
-          value={labelInfo.issueContent}
-          className="leading-none text-gray-10 p-3 focus:outline-none focus:border-blue-700 mt-2 border-0 bg-gray-800 rounded"
-          onChange={(e) => {
-            setlabelInfo({ ...labelInfo, issueContent: e.target.value });
-          }}
-        />
-        <br />
-          </div>
+        <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-3">
+          <label
+            htmlFor="issueContent"
+            className="font-semibold leading-none my-2 text-gray-300"
+          >
+            Issue Content{" "}
+          </label>
+          <input
+            type="text"
+            name="issueContent"
+            value={labelInfo.issueContent}
+            className="leading-none text-gray-10 p-3 focus:outline-none  focus:border-slate-200 mt-2 border-2 border-slate-400 bg-slate-900 rounded-full"
+            onChange={(e) => {
+              setlabelInfo({ ...labelInfo, issueContent: e.target.value });
+            }}
+          />
+          <br />
+        </div>
 
-          <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
-        <label htmlFor="label" className="font-semibold leading-none text-gray-300">label</label>
-        <input
-          type="text"
-          name="label"
-          value={labelInfo.label}
-          className="leading-none text-gray-10 p-3 focus:outline-none focus:border-blue-700 mt-2 border-0 bg-gray-800 rounded"
-          onChange={(e) => {
-            setlabelInfo({ ...labelInfo, label: e.target.value });
-          }}
-        />
-          </div>
-        
+        <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
+          <label
+            htmlFor="label"
+            className="font-semibold leading-none my-2 text-gray-300"
+          >
+            label
+          </label>
+          <input
+            type="text"
+            name="label"
+            value={labelInfo.label}
+            className="leading-none text-gray-10 p-3 focus:outline-none  focus:border-slate-200 mt-2 border-2 border-slate-400 bg-slate-900 rounded-full"
+            onChange={(e) => {
+              setlabelInfo({ ...labelInfo, label: e.target.value });
+            }}
+          />
+        </div>
+
         <br />
-        
-        <div className="inline-flex gap-2  w-1/3  mx-auto ">
-        <button
-          type="submit"
-          className="bg-yellow-500 p-2 rounded-lg text-white"
-        >
-          Submit
-        </button>
-        <button
-          className="bg-green-500 p-2 rounded-lg text-white"
-          onClick={() => handleEdit(labelInfo.repo_name)}
-        >
-          Update
-        </button>
-        <button
-          className="bg-red-500 p-2 rounded-lg text-white"
-          onClick={() => handleDelete(labelInfo.repo_name)}
-        >
-          Delete
-        </button>
+
+        <div className="inline-flex gap-2 w-1/3 mx-auto ">
+          <button
+            type="submit"
+            className="bg-slate-900 border-2 border-slate-400 px-5 py-2 rounded-full hover:border-slate-200 text-white"
+          >
+            Submit
+          </button>
+          <button
+            className="bg-slate-900 border-2 border-slate-400 px-5 py-2 rounded-full hover:border-slate-200 text-white"
+            onClick={() => handleEdit(labelInfo.repo_name)}
+          >
+            Update
+          </button>
+          <button
+            className="bg-slate-900 border-2 border-slate-400 px-5 py-2 rounded-full hover:border-slate-200 text-white"
+            onClick={() => handleDelete(labelInfo.repo_name)}
+          >
+            Delete
+          </button>
         </div>
       </form>
-
-      
-        
-
     </>
   ) : (
     <h1>You are not authenticated.</h1>
