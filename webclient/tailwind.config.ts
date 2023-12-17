@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         ginie: ['Ginie'],
+        sec:['secondary']
       },
       animation: {
         spin: 'spin calc(var(--speed) * 2) infinite linear',
