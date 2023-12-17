@@ -1,16 +1,26 @@
+const { labelConfig } = require("../label_config");
+
+
 const addLabels = async (context) => {
     const issue = context.payload.issue;
     const repo = context.repo();
+    const repoName = context.payload.repository.name;
+    const ownerName = context.payload.repository.owner.login;
     const issueText = issue.body;
     if (issueText) {
 
-        const labels = analyzeIssueText(issueText);
+        const predefinedLabels = analyzeIssueText(issueText);
 
-        if (labels.length > 0) {
+        const labelConfigFromDB = await labelConfig.find({ name: ownerName, repo_name: repoName });
+        const userDefinedLabels = labelConfigFromDB.map(config => config.label);
+
+        const allLabels = [...predefinedLabels, ...userDefinedLabels];
+
+        if (allLabels.length > 0) {
             await context.octokit.issues.addLabels({
                 ...repo,
                 issue_number: issue.number,
-                labels: labels,
+                labels: allLabels,
             });
         }
     }

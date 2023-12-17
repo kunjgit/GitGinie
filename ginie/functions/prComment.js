@@ -9,7 +9,8 @@ const prComment = async (context, comment_type) => {
 
     try {
         const repoConfigFromDB = await repoinfo.findOne({ name: ownerName, repo_name: repoName });
-
+        const defaultIssueOpenMessage = "Thank you for your contribution to this repository! We appreciate your effort in opening pull request.\nHappy coding! ";
+        const defaultIssueCloseMessage = "Thank you for your contribution to this repository! We appreciate your effort in closing pull request.\nHappy coding! ";
         if (repoConfigFromDB) {
             let messageContent;
             if (comment_type === "open") {
@@ -27,7 +28,23 @@ const prComment = async (context, comment_type) => {
             });
 
         } else {
-            console.error("RepoConfig not found in MongoDB.");
+            if (comment_type === "open") {
+                await context.octokit.pulls.createReview({
+                    owner: ownerName,
+                    repo: repoName,
+                    pull_number: number,
+                    event: "COMMENT",
+                    body: `@${prUser}\n${defaultIssueOpenMessage}`,
+                });
+            } else if (comment_type === "close") {
+                await context.octokit.pulls.createReview({
+                    owner: ownerName,
+                    repo: repoName,
+                    pull_number: number,
+                    event: "COMMENT",
+                    body: `@${prUser}\n${defaultIssueCloseMessage}`,
+                });
+            }
         }
     } catch (error) {
         console.error("Error fetching data from MongoDB:", error);
