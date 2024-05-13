@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.3.0",
     "@tailwindcss/line-clamp": "^0.4.4",
     "axios": "^1.6.2",
-    "clsx": "^2.1.0",
-    "framer-motion": "^11.0.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.1.9",
     "mongoose": "^8.0.3",
     "next": "^14.0.4",
     "next-auth": "^4.24.5",
@@ -23,7 +24,7 @@
     "react-hot-toast": "^2.4.1",
     "react-markdown": "^9.0.1",
     "react-parallax-tilt": "^1.7.177",
-    "tailwind-merge": "^2.2.1"
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",

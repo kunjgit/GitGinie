@@ -1,20 +1,33 @@
-import { useSession, signOut, } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
-import Link from "next/link";
+import { toast,Toaster } from "react-hot-toast";
 const Profile = () => {
   const { data: session } = useSession();
-
+  const router=useRouter();
 
   const user_stats = `https://github-readme-stats.vercel.app/api?username=${session?.user?.github_username}`;
-const lang_stats=`https://github-readme-stats.vercel.app/api/top-langs/?username=${session?.user?.github_username}`;
-const contri_stats=`https://github-readme-activity-graph.vercel.app/graph?username=${session?.user?.github_username}&theme=github-compact`;
+  const lang_stats = `https://github-readme-stats.vercel.app/api/top-langs/?username=${session?.user?.github_username}`;
+  const contri_stats = `https://github-readme-activity-graph.vercel.app/graph?username=${session?.user?.github_username}&theme=github-compact`;
   const handleSignOut = async () => {
     await signOut();
   };
 
+
+  useEffect(() => {
+
+    setTimeout(()=>{
+      if(!session?.user)
+        {
+          toast.error("You are not signed in yet ");
+          setTimeout(()=>{},2000);
+        }
+    },5000);
+  }, [session]);
+
   return (
     <>
-
+    <Toaster/>
       <h1 className="text-6xl text-center  font-ginie  font-bold mb-4">
         Profile
       </h1>
@@ -45,15 +58,15 @@ const contri_stats=`https://github-readme-activity-graph.vercel.app/graph?userna
 
               </button>
 
-          <div className=" mt-10 grid  gap-2 grid-cols-2  ">
-              <img src={user_stats} className=" my-auto "
-                alt="Profile"
-              />
-               <img src={lang_stats}
-                alt="Profile"
-              />
+              <div className=" mt-10 grid  gap-2 grid-cols-2  ">
+                <img src={user_stats} className=" my-auto "
+                  alt="Profile"
+                />
+                <img src={lang_stats}
+                  alt="Profile"
+                />
 
-            
+
               </div>
               <img src={contri_stats}
                 alt="Profile"

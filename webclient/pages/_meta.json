@@ -11,12 +11,13 @@
     "type": "page",
     "title": "Profile",
     "theme": {
+      
       "typesetting": "article"
     }
   },
   "docs": {
     "type": "page",
-    "title": "How to use"
+    "title": "Documentation"
   },
   "repoconfig": {
     "type": "page",

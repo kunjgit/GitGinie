@@ -11,7 +11,7 @@ const withNextra = nextra({
  */
 const nextConfig = {
   images:{
-    domains: ['raw.githubusercontent.com','avatars.githubusercontent.com','aceternity.com'],
+    domains: ['raw.githubusercontent.com','avatars.githubusercontent.com','aceternity.com','pbs.twimg.com'],
   },
 };
 

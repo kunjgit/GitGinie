@@ -4,15 +4,8 @@
     "title": "Getting Started"
   },
   "index": "Introduction",
-  "quickstart": "Let's quickstart",
-  "improve": "Install GitGinie",
-  "-- Learn Automation": {
-    "type": "separator",
-    "title": "Learn Automation"
-  },
-  "introactions": "Introduction",
-  "guideactions": "Guide",
-  "writeactions": "Let's start writing the code",
-  "maintainer" : "Maintainer's Guide"
+  "quickstart": "Install GitGine in your github repository",
+  "configure": "Configure Your repository by GitGinie Web "
+
   
 }
