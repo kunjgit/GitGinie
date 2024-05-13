@@ -11,6 +11,8 @@
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
     "axios": "^1.6.2",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.3",
     "mongoose": "^8.0.3",
     "next": "^14.0.4",
     "next-auth": "^4.24.5",
@@ -20,7 +22,8 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-markdown": "^9.0.1",
-    "react-parallax-tilt": "^1.7.177"
+    "react-parallax-tilt": "^1.7.177",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "@types/node": "^20",

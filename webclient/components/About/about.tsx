@@ -3,51 +3,116 @@ import Link from "next/link";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { Container } from "./container";
+import { HeroParallax } from "./info"
+ 
+export function HeroParallaxDemo() {
+  return <HeroParallax products={products} />;
+}
 
-import Image from "next/image";
+export const products = [
+  {
+    title: "Moonbeam",
+    link: "https://gomoonbeam.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+  },
+  {
+    title: "Cursor",
+    link: "https://cursor.so",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+  },
+  {
+    title: "Rogue",
+    link: "https://userogue.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+  },
+ 
+  {
+    title: "Editorially",
+    link: "https://editorially.org",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+  },
+  {
+    title: "Editrix AI",
+    link: "https://editrix.ai",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/editrix.png",
+  },
+  {
+    title: "Pixel Perfect",
+    link: "https://app.pixelperfect.quest",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+  },
+ 
+  {
+    title: "Algochurn",
+    link: "https://algochurn.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
+  },
+  {
+    title: "Aceternity UI",
+    link: "https://ui.aceternity.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
+  },
+  {
+    title: "Tailwind Master Kit",
+    link: "https://tailwindmasterkit.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
+  },
+  {
+    title: "SmartBridge",
+    link: "https://smartbridgetech.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
+  },
+  {
+    title: "Renderwork Studio",
+    link: "https://renderwork.studio",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
+  },
+ 
+  {
+    title: "Creme Digital",
+    link: "https://cremedigital.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
+  },
+  {
+    title: "Golden Bells Academy",
+    link: "https://goldenbellsacademy.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+  },
+  {
+    title: "Invoker Labs",
+    link: "https://invoker.lol",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/invoker.png",
+  },
+  {
+    title: "E Free Invoice",
+    link: "https://efreeinvoice.com",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
+  },
+];
 
 export function About() {
   return (
     <>
       <div className="relative">
-        <Container>
-          <h3 className="text-2xl font-ginie text-center font-bold text-zinc-900 dark:text-white md:text-3xl lg:text-4xl">
-            Why Git-Ginie ?
-          </h3>
-
-          <div className="relative mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <Card
-              title="Very Efficient"
-              icon={<BoxIcon />}
-              description={
-                <>
-                  It is very efficient and quick in giving responses and
-                  executing workflows.
-                </>
-              }
-            />
-            <Card
-              title="Customization"
-              icon={<LightBulbIcon />}
-              description={
-                <>
-                  User can customize all issue/pr open/close comments and also
-                  the custom labels.
-                </>
-              }
-            />
-            <Card
-              title="Easier"
-              icon={<ThumbsUpIcon />}
-              description={
-                <>
-                  Any one with the simple knowledge of the github repo can use
-                  the application and customize workflows.
-                </>
-              }
-            />
-          </div>
-        </Container>
+        <h3 className="text-2xl font-ginie text-center font-bold text-zinc-900 dark:text-white md:text-3xl lg:text-4xl">
+          Why Git-Ginie ?
+        </h3>
+       <HeroParallax products={products}/>
       </div>
     </>
   );
