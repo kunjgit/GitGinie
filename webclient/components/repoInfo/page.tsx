@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import { Toaster,toast } from "react-hot-toast";
-// MarkdownPreview component for rendering Markdown content
 type MarkdownPreviewProps = {
   content: string;
 };
@@ -13,7 +12,6 @@ const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({ content }) => {
   return <ReactMarkdown>{content}</ReactMarkdown>;
 };
 
-// Define types for repoInfo and showPreview states
 type RepoInfoState = {
   repo_name: string;
   issueOpenContent: string;
@@ -29,7 +27,6 @@ type ShowPreviewState = {
   pullRequestCloseContent?: boolean;
 };
 
-// RepoInfo component
 const RepoInfo = () => {
   const { data: session } = useSession();
   const [repoInfo, setRepoInfo] = useState<RepoInfoState>({
@@ -43,6 +40,17 @@ const RepoInfo = () => {
   const [userRepos, setUserRepos] = useState<string[]>([]);
   const [showPreview, setShowPreview] = useState<ShowPreviewState>({});
 
+  useEffect(() => {
+
+    setTimeout(()=>{
+      if(!session?.user)
+        {
+          toast.error("You are not signed in yet ");
+          setTimeout(()=>{},2000);
+        }
+    },5000);
+  }, [session]);
+  
   useEffect(() => {
     const fetchUserRepos = async () => {
       try {
@@ -330,7 +338,19 @@ const RepoInfo = () => {
       </form>
     </>
   ) : (
+    <>
+    <Toaster/>
+    {" "}
+            <img
+              src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Zzz.png"
+              alt="Sleeping"
+              width={200}
+              height={200}
+              className="object-contain mx-auto "
+            />
     <h1>You are not authenticated.</h1>
+    
+    </>
   );
 };
 

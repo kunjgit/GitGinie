@@ -30,6 +30,16 @@ const labelInformation = () => {
   const [userRepos, setUserRepos] = useState<string[]>([]);
 
 
+  useEffect(() => {
+
+    setTimeout(()=>{
+      if(!session?.user)
+        {
+          toast.error("You are not signed in yet ");
+          setTimeout(()=>{},2000);
+        }
+    },5000);
+  }, [session]);
   
   useEffect(() => {
     const fetchUserRepos = async () => {
@@ -205,7 +215,18 @@ const labelInformation = () => {
       </form>
     </>
   ) : (
+    <>
+    <Toaster/>
+    {" "}
+            <img
+              src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Zzz.png"
+              alt="Sleeping"
+              width={200}
+              height={200}
+              className="object-contain mx-auto "
+            />
     <h1>You are not authenticated.</h1>
+    </>
   );
 };
 
