@@ -13,10 +13,6 @@ type labelInfoState = {
 };
 
 
-
-
-
-
 const labelInformation = () => {
 
   const { data: session } = useSession();

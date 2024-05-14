@@ -1,4 +1,3 @@
-// Import necessary modules and components
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import axios from "axios";
@@ -91,7 +90,7 @@ const RepoInfo = () => {
     setTimeout(() => {
       if (!session?.user) {
         toast.error("You are not signed in yet ");
-        setTimeout(() => {}, 2000);
+        setTimeout(() => { }, 2000);
       }
     }, 5000);
   }, [session]);
@@ -415,34 +414,34 @@ const RepoInfo = () => {
                   )}
                 />
 
-                  <div className="gap-2 w-64 mx-auto flex flex-col items-center ">
-                    <Button
-                      type="submit"
-                      variant={"default"}
-                      className="bg-green-700 rounded-3 w-full hover:bg-green-300 hover:text-green-900 font-sec"
-                    >
-                      Submit
-                    </Button>
-                  </div>
+                <div className="gap-2 w-64 mx-auto flex flex-col items-center ">
+                  <Button
+                    type="submit"
+                    variant={"default"}
+                    className="bg-green-700 rounded-3 w-full hover:bg-green-300 hover:text-green-900 font-sec"
+                  >
+                    Submit
+                  </Button>
+                </div>
               </form>
             </Form>
           </CardContent>
           <CardFooter className="flex justify-between">
             {" "}
             <div className="gap-2 w-64 mx-auto flex flex-row items-center ">
-            <Button
-              className="bg-blue-600 rounded-3 w-full  hover:bg-blue-300 hover:text-blue-900 font-sec"
-              onClick={() => handleEdit(form.getValues("repo_name"))}
-            >
-              Update
-            </Button>
-            <Button
-              variant={"destructive"}
-              className="bg-red-600 rounded-3 w-full  hover:bg-red-300 hover:text-red-900 font-sec"
-              onClick={() => handleDelete(form.getValues("repo_name"))}
-            >
-              Delete
-            </Button>
+              <Button
+                className="bg-blue-600 rounded-3 w-full  hover:bg-blue-300 hover:text-blue-900 font-sec"
+                onClick={() => handleEdit(form.getValues("repo_name"))}
+              >
+                Update
+              </Button>
+              <Button
+                variant={"destructive"}
+                className="bg-red-600 rounded-3 w-full  hover:bg-red-300 hover:text-red-900 font-sec"
+                onClick={() => handleDelete(form.getValues("repo_name"))}
+              >
+                Delete
+              </Button>
             </div>
           </CardFooter>
         </Card>
