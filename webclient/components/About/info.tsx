@@ -1,159 +1,131 @@
 "use client";
-import React from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  MotionValue,
-} from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-
-export const HeroParallax = ({
-  products,
+import React, { useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
+export const ContainerScroll = ({
+  users,
+  titleComponent,
 }: {
-  products: {
-    title: string;
-    link: string;
-    thumbnail: string;
+  users: {
+    name: string;
+    designation: string;
+    image: string;
+    badge?: string;
   }[];
+  titleComponent: string | React.ReactNode;
 }) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
-  const ref = React.useRef(null);
+  const containerRef = useRef<any>(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
+    target: containerRef,
   });
+  const [isMobile, setIsMobile] = React.useState(false);
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
-    springConfig
-  );
+  const scaleDimensions = () => {
+    return isMobile ? [0.7, 0.9] : [1.05, 1];
+  };
+
+  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
+  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
   return (
     <div
-      ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[80rem] flex items-center justify-center relative p-20"
+      ref={containerRef}
     >
-      <Header />
-      <motion.div
+      <div
+        className="py-40 w-full relative"
         style={{
-          rotateX,
-          rotateZ,
-          translateY,
-          opacity,
+          perspective: "1000px",
         }}
-        className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
-          {secondRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateXReverse}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-      </motion.div>
+        <Header translate={translate} titleComponent={titleComponent} />
+        <Card
+          rotate={rotate}
+          translate={translate}
+          scale={scale}
+          users={users}
+        />
+      </div>
     </div>
   );
 };
 
-export const Header = () => {
+export const Header = ({ translate, titleComponent }: any) => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        The Ultimate <br /> development studio
-      </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        We build beautiful products with the latest technologies and frameworks.
-        We are a team of passionate developers and designers that love to build
-        amazing products.
-      </p>
-    </div>
+    <motion.div
+      style={{
+        translateY: translate,
+      }}
+      className="div max-w-5xl mx-auto text-center"
+    >
+      {titleComponent}
+    </motion.div>
   );
 };
 
-export const ProductCard = ({
-  product,
+export const Card = ({
+  rotate,
+  scale,
   translate,
+  users,
 }: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
-  translate: MotionValue<number>;
+  rotate: any;
+  scale: any;
+  translate: any;
+  users: {
+    name: string;
+    designation: string;
+    image: string;
+    badge?: string;
+  }[];
 }) => {
   return (
     <motion.div
       style={{
-        x: translate,
+        rotateX: rotate, // rotate in X-axis
+        scale,
+        boxShadow:
+          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      whileHover={{
-        y: -20,
-      }}
-      key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-6 bg-[#222222] rounded-[30px] shadow-2xl"
     >
-      <Link
-        href={product.link}
-        className="block group-hover/product:shadow-2xl "
-      >
-        <Image
-          src={product.thumbnail}
-          height="600"
-          width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0"
-          alt={product.title}
-        />
-      </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {product.title}
-      </h2>
+      <div className="bg-gray-100 h-full w-full rounded-2xl grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-hidden p-4">
+        {users.map((user, idx: number) => (
+          <motion.div
+            key={`user-${idx}`}
+            className="bg-white rounded-md cursor-pointer relative"
+            style={{ translateY: translate }}
+            whileHover={{
+              boxShadow:
+                "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+            }}
+          >
+            <div className="absolute top-2 right-2 rounded-full text-xs font-bold bg-white px-2 py-1">
+              {user.badge}
+            </div>
+            <img
+              src={user.image}
+              className="rounded-tr-md rounded-tl-md text-sm "
+              alt="thumbnail"
+            />
+            <div className="p-4">
+              <h1 className="font-semibold text-sm ">{user.name}</h1>
+              <h2 className=" text-gray-500 text-xs ">{user.designation}</h2>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </motion.div>
   );
 };
