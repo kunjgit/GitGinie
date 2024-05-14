@@ -259,7 +259,7 @@ const RepoInfo = () => {
                             <SelectValue placeholder="Select a repository" />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent className="bg-black">
+                        <SelectContent className="bg-black dark:bg-transparent dark:text-white text-black">
                           {userRepos.map((repo, index) => (
                             <SelectItem value={repo}>{repo}</SelectItem>
                           ))}
@@ -287,7 +287,7 @@ const RepoInfo = () => {
                             onClick={() =>
                               handleTogglePreview("issueOpenContent")
                             }
-                            className="text-slate-200 my-2 focus:underline hover:underline focus:outline-none ml-2"
+                            className=" text-black dark:text-slate-200 my-2 focus:underline hover:underline focus:outline-none ml-2"
                             type="button"
                           >
                             {showPreview["issueOpenContent"]
@@ -323,7 +323,7 @@ const RepoInfo = () => {
                             onClick={() =>
                               handleTogglePreview("issueCloseContent")
                             }
-                            className="text-slate-200 my-2 focus:underline hover:underline focus:outline-none ml-2"
+                            className=" text-black dark:text-slate-200 my-2 focus:underline hover:underline focus:outline-none ml-2"
                             type="button"
                           >
                             {showPreview["issueCloseContent"]
@@ -359,7 +359,7 @@ const RepoInfo = () => {
                             onClick={() =>
                               handleTogglePreview("pullRequestOpenContent")
                             }
-                            className="text-slate-200 my-2 focus:underline hover:underline focus:outline-none ml-2"
+                            className=" text-black dark:text-slate-200 my-2 focus:underline hover:underline focus:outline-none ml-2"
                             type="button"
                           >
                             {showPreview["pullRequestOpenContent"]
@@ -395,7 +395,7 @@ const RepoInfo = () => {
                             onClick={() =>
                               handleTogglePreview("pullRequestCloseContent")
                             }
-                            className="text-slate-200 my-2 focus:underline hover:underline focus:outline-none ml-2"
+                            className=" text-black dark:text-slate-200 my-2 focus:underline hover:underline focus:outline-none ml-2"
                             type="button"
                           >
                             {showPreview["pullRequestCloseContent"]
