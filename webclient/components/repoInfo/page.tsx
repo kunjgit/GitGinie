@@ -259,7 +259,7 @@ const RepoInfo = () => {
                             <SelectValue placeholder="Select a repository" />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent className="bg-black dark:bg-transparent dark:text-white text-black">
+                        <SelectContent className="bg-white dark:bg-black dark:text-white text-black">
                           {userRepos.map((repo, index) => (
                             <SelectItem value={repo}>{repo}</SelectItem>
                           ))}
@@ -418,7 +418,7 @@ const RepoInfo = () => {
                   <Button
                     type="submit"
                     variant={"default"}
-                    className="bg-green-700 rounded-3 w-full hover:bg-green-300 hover:text-green-900 font-sec"
+                    className="text-white bg-green-700 rounded-3 w-full hover:bg-green-300 hover:text-green-900 font-sec"
                   >
                     Submit
                   </Button>
@@ -430,14 +430,14 @@ const RepoInfo = () => {
             {" "}
             <div className="gap-2 w-64 mx-auto flex flex-row items-center ">
               <Button
-                className="bg-blue-600 rounded-3 w-full  hover:bg-blue-300 hover:text-blue-900 font-sec"
+                className="text-white bg-blue-600 rounded-3 w-full  hover:bg-blue-300 hover:text-blue-900 font-sec"
                 onClick={() => handleEdit(form.getValues("repo_name"))}
               >
                 Update
               </Button>
               <Button
                 variant={"destructive"}
-                className="bg-red-600 rounded-3 w-full  hover:bg-red-300 hover:text-red-900 font-sec"
+                className="text-white bg-red-600 rounded-3 w-full  hover:bg-red-300 hover:text-red-900 font-sec"
                 onClick={() => handleDelete(form.getValues("repo_name"))}
               >
                 Delete
