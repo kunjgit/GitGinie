@@ -31,7 +31,7 @@ export default async function handler(
         //   return res.status(404).json({ message: 'Label configuration not found' });
         // }
 
-        const updatedLabel = await labelConfig.findOneAndReplace(
+        const updatedLabel = await labelConfig.updateOne(
           {
             repo_name: repoName,
             issueContent : issueContent

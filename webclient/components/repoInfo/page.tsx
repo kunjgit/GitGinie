@@ -71,13 +71,13 @@ const RepoInfoSchema = z.object({
 
 const RepoInfo = () => {
   const { data: session } = useSession();
-  const [repoInfo, setRepoInfo] = useState<RepoInfoState>({
-    repo_name: "",
-    issueOpenContent: "",
-    issueCloseContent: "",
-    pullRequestOpenContent: "",
-    pullRequestCloseContent: "",
-  });
+  // const [repoInfo, setRepoInfo] = useState<RepoInfoState>({
+  //   repo_name: "",
+  //   issueOpenContent: "",
+  //   issueCloseContent: "",
+  //   pullRequestOpenContent: "",
+  //   pullRequestCloseContent: "",
+  // });
 
   const form = useForm<RepoInfoState>({
     resolver: zodResolver(RepoInfoSchema),
