@@ -14,6 +14,29 @@ export default async function handler(
   await dbConnect();
 
   switch (method) {
+    case 'GET':
+      try {
+        const reqBody = req.body;
+        const { issueContent, label } = reqBody;
+        console.log(repoName);
+        console.log(issueContent);
+        console.log(label);
+
+        let labels=labelConfig.find({
+          repo_name:repoName
+        })
+
+        return res.status(200).json(labels);
+
+      }catch(error)
+      {
+        console.log("Issue fetching label config for repository " +error)
+
+        return res.status(500).json({
+          message:'Error fetching label for this repo !'
+        });
+
+      }
     case 'PUT':
       try {
         console.log("in put method of label config")
