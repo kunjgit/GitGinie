@@ -86,14 +86,7 @@ const RepoInfo = () => {
   const [userRepos, setUserRepos] = useState<string[]>([]);
   const [showPreview, setShowPreview] = useState<ShowPreviewState>({});
   const [repo, setRepo] = useState<string>();
-  useEffect(() => {
-    setTimeout(() => {
-      if (!session?.user) {
-        toast.error("You are not signed in yet ");
-        setTimeout(() => { }, 2000);
-      }
-    }, 5000);
-  }, [session]);
+
 
   useEffect(() => {
     const fetchUserRepos = async () => {
