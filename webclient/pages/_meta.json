@@ -2,10 +2,7 @@
   "index": {
     "type": "page",
     "title": "GitGinie",
-    "display": "hidden",
-    "theme": {
-      "typesetting": "raw"
-    }
+    "display": "hidden"
   },
   "profile": {
     "type": "page",

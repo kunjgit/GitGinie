@@ -64,7 +64,7 @@ const Nav: React.FC = () => {
       </div>
 
       {/* Mobile Navigation */}
-      {/* <div className="sm:hidden flex ">
+       <div className="sm:hidden flex ">
         {session?.user ? (
           <Link href="/profile">
             <img
@@ -92,7 +92,7 @@ const Nav: React.FC = () => {
               ))}
           </>
         )}
-      </div> */}
+      </div> 
     </nav>
   );
 };
