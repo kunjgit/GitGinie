@@ -273,3 +273,18 @@ html[class~='dark'] .gradient-text {
   display: flex;
   width: calc(12rem * 10 * 2);
 }
+
+@keyframes swipeUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.text-swipe-up {
+  animation: swipeUp 1s ease-in-out;
+}
