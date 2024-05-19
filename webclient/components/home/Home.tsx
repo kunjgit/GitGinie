@@ -12,7 +12,7 @@ const Home: React.FC = () => {
       </h3>
 
       <div className=" w-full flex flex-col px-0 mx-0">
-        <img className="h-96 my-10 mx-auto" height={300} width={300} src="./heroes.svg" alt="" />
+        <img className="h-96 my-10 mx-auto" height={350} width={350} src="./heroes.svg" alt="" />
         <h3 className="text-swipe-up text-3xl font-ginie text-center font-bold text-zinc-900 dark:text-white md:text-5xl lg:text-6xl my-6">
         Why GitGinie?
       </h3>
